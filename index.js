@@ -23,7 +23,7 @@ window.addEventListener("load", () => {
 })
 
 function weatherReport(data) {
-     var urlcast = `http://api.openweathermap.org/data/2.5/forecast?q=${data.name}&` + `appid=${apikey}`;
+     var urlcast = `https://api.openweathermap.org/data/2.5/forecast?q=${data.name}&` + `appid=${apikey}`;
 
     fetch(urlcast).then((res) => {
         return res.json();
@@ -35,7 +35,7 @@ function weatherReport(data) {
         temp.innerText = Math.floor(data.main.temp - 273) + ' °C';
         cloud.innerText = data.weather[0].description;
         let icon1 = data.weather[0].icon;
-        let iconurl = "http://api.openweathermap.org/img/w/" + icon1 + ".png";
+        let iconurl = "https://api.openweathermap.org/img/w/" + icon1 + ".png";
         img.src = iconurl
     })
 }
