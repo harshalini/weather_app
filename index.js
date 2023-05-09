@@ -23,7 +23,7 @@ window.addEventListener("load", () => {
 })
 
 function weatherReport(data) {
-     var urlcast = `https://api.openweathermap.org/data/2.5/forecast?q=${data.name}&` + `appid=${apikey}`;
+    var urlcast = `https://api.openweathermap.org/data/2.5/forecast?q=${data.name}&` + `appid=${apikey}`;
 
     fetch(urlcast).then((res) => {
         return res.json();
@@ -94,4 +94,17 @@ function dayForecast(forecast) {
 
         document.querySelector('.weekF').appendChild(div)
     }
+}
+
+function searchByCity() {
+    var place = document.getElementById('input').value;
+    var urlsearch = `http://api.openweathermap.org/data/2.5/weather?q=${place}&` + `appid=${apikey}`;
+
+    fetch(urlsearch).then((res) => {
+        return res.json();
+    }).then((data) => {
+        console.log(data);
+        weatherReport(data);
+    })
+    document.getElementById('input').value = '';
 }
