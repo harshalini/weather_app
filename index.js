@@ -2,6 +2,8 @@ const apikey = "5639b3c043858245052773c333bb2579";
 const city = document.querySelector("#city");
 const temp = document.querySelector("#temperature");
 const cloud = document.querySelector("#clouds");
+const humidity = document.querySelector("#humidity");
+const wind = document.querySelector("#wind");
 const img = document.querySelector("#img");
 
 window.addEventListener("load", () => {
@@ -34,6 +36,8 @@ function weatherReport(data) {
         city.innerText = data.name + ', ' + data.sys.country;
         temp.innerText = Math.floor(data.main.temp - 273) + ' °C';
         cloud.innerText = data.weather[0].description;
+        humidity.innerText = "Humidity: " + data.main.humidity + "%";
+        wind.innerText = "Wind: " + data.wind.speed + " miles/hour";
         let icon1 = data.weather[0].icon;
         let iconurl = "https://api.openweathermap.org/img/w/" + icon1 + ".png";
         img.src = iconurl
