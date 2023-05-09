@@ -98,7 +98,7 @@ function dayForecast(forecast) {
 
 function searchByCity() {
     var place = document.getElementById('input').value;
-    var urlsearch = `http://api.openweathermap.org/data/2.5/weather?q=${place}&` + `appid=${apikey}`;
+    var urlsearch = `https://api.openweathermap.org/data/2.5/weather?q=${place}&` + `appid=${apikey}`;
 
     fetch(urlsearch).then((res) => {
         return res.json();
